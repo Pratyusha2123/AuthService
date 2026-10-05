@@ -1,4 +1,4 @@
-package com.krishisathi.authservice.entity;
+package com.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

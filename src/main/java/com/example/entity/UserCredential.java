@@ -1,4 +1,4 @@
-package com.krishisathi.authservice.entity;
+package com.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,9 +16,14 @@ public class UserCredential {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
 
     private String password;
 
     private boolean enabled;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 }

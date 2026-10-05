@@ -1,4 +1,4 @@
-package com.krishisathi.authservice.entity;
+package com.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,9 +18,14 @@ public class RefreshToken {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String token;
 
     private LocalDateTime expiresAt;
 
     private boolean revoked;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserCredential user;
 }
